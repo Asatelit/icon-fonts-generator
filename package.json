@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "author": "Yuri Kuschinsky",
+  "license": "ISC",
+  "engines": {
+    "node": ">=8.0 <10.0"
+  },
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "webfonts-generator": "^0.4.0"
+  },
+  "scripts": {
+    "build": "node generate.font.js"
+  }
+}

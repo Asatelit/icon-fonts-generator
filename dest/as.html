@@ -1,0 +1,1848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>as</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .preview {
+            width: 100px;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .preview .inner {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background: #f5f5f5;
+            -webkit-border-radius: 3px 3px 0 0;
+            -moz-border-radius: 3px 3px 0 0;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .preview .inner  {
+            line-height: 85px;
+            font-size: 40px;
+            color: #333;
+        }
+
+        .label {
+            display: inline-block;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 5px;
+            font-size: 10px;
+            font-family: Monaco, monospace;
+            color: #666;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            background: #ddd;
+            -webkit-border-radius: 0 0 3px 3px;
+            -moz-border-radius: 0 0 3px 3px;
+            border-radius: 0 0 3px 3px;
+        }
+
+        @font-face {
+    font-family: "as";
+    src: url("as.eot?daebb3b04c26affdafa74dc1e1dc3684?#iefix") format("embedded-opentype"),
+url("as.woff2?daebb3b04c26affdafa74dc1e1dc3684") format("woff2"),
+url("as.woff?daebb3b04c26affdafa74dc1e1dc3684") format("woff"),
+url("as.ttf?daebb3b04c26affdafa74dc1e1dc3684") format("truetype"),
+url("as.svg?daebb3b04c26affdafa74dc1e1dc3684#as") format("svg");
+}
+
+.as {
+    display: inline-block;
+    font: normal normal normal 14px/1 as;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.as-align-center:before {
+   content: "\f101";
+}
+.as-align-justify:before {
+   content: "\f102";
+}
+.as-align-left:before {
+   content: "\f103";
+}
+.as-align-right:before {
+   content: "\f104";
+}
+.as-announcement:before {
+   content: "\f105";
+}
+.as-arrow-down:before {
+   content: "\f106";
+}
+.as-arrow-left:before {
+   content: "\f107";
+}
+.as-arrow-right:before {
+   content: "\f108";
+}
+.as-arrow-up:before {
+   content: "\f109";
+}
+.as-attachment:before {
+   content: "\f10a";
+}
+.as-barcode:before {
+   content: "\f10b";
+}
+.as-bold:before {
+   content: "\f10c";
+}
+.as-border-all:before {
+   content: "\f10d";
+}
+.as-border-bottom:before {
+   content: "\f10e";
+}
+.as-border-horizontal:before {
+   content: "\f10f";
+}
+.as-border-inner:before {
+   content: "\f110";
+}
+.as-border-left:before {
+   content: "\f111";
+}
+.as-border-none:before {
+   content: "\f112";
+}
+.as-border-outer:before {
+   content: "\f113";
+}
+.as-border-right:before {
+   content: "\f114";
+}
+.as-border-top:before {
+   content: "\f115";
+}
+.as-border-vertical:before {
+   content: "\f116";
+}
+.as-caret-down:before {
+   content: "\f117";
+}
+.as-caret-left:before {
+   content: "\f118";
+}
+.as-caret-right:before {
+   content: "\f119";
+}
+.as-caret-up:before {
+   content: "\f11a";
+}
+.as-check-circle-o:before {
+   content: "\f11b";
+}
+.as-check-circle:before {
+   content: "\f11c";
+}
+.as-check-square-o:before {
+   content: "\f11d";
+}
+.as-check-square:before {
+   content: "\f11e";
+}
+.as-check:before {
+   content: "\f11f";
+}
+.as-chevron-down:before {
+   content: "\f120";
+}
+.as-chevron-left:before {
+   content: "\f121";
+}
+.as-chevron-right:before {
+   content: "\f122";
+}
+.as-chevron-top:before {
+   content: "\f123";
+}
+.as-circle-o:before {
+   content: "\f124";
+}
+.as-circle:before {
+   content: "\f125";
+}
+.as-clock-o:before {
+   content: "\f126";
+}
+.as-close-circle-o:before {
+   content: "\f127";
+}
+.as-close-circle:before {
+   content: "\f128";
+}
+.as-close:before {
+   content: "\f129";
+}
+.as-collaborators:before {
+   content: "\f12a";
+}
+.as-comma:before {
+   content: "\f12b";
+}
+.as-comment-o:before {
+   content: "\f12c";
+}
+.as-copy:before {
+   content: "\f12d";
+}
+.as-date-range:before {
+   content: "\f12e";
+}
+.as-date:before {
+   content: "\f12f";
+}
+.as-delete-forever:before {
+   content: "\f130";
+}
+.as-delete:before {
+   content: "\f131";
+}
+.as-diamond:before {
+   content: "\f132";
+}
+.as-done-all:before {
+   content: "\f133";
+}
+.as-done:before {
+   content: "\f134";
+}
+.as-download:before {
+   content: "\f135";
+}
+.as-edit:before {
+   content: "\f136";
+}
+.as-envelope:before {
+   content: "\f137";
+}
+.as-error-outline:before {
+   content: "\f138";
+}
+.as-error:before {
+   content: "\f139";
+}
+.as-exit:before {
+   content: "\f13a";
+}
+.as-expand:before {
+   content: "\f13b";
+}
+.as-eye-slash:before {
+   content: "\f13c";
+}
+.as-eye:before {
+   content: "\f13d";
+}
+.as-file-download:before {
+   content: "\f13e";
+}
+.as-file-upload:before {
+   content: "\f13f";
+}
+.as-file:before {
+   content: "\f140";
+}
+.as-filter:before {
+   content: "\f141";
+}
+.as-fire:before {
+   content: "\f142";
+}
+.as-flag:before {
+   content: "\f143";
+}
+.as-flash:before {
+   content: "\f144";
+}
+.as-folder-create:before {
+   content: "\f145";
+}
+.as-folder-open:before {
+   content: "\f146";
+}
+.as-folder-shared:before {
+   content: "\f147";
+}
+.as-folder:before {
+   content: "\f148";
+}
+.as-group:before {
+   content: "\f149";
+}
+.as-header:before {
+   content: "\f14a";
+}
+.as-heart-o:before {
+   content: "\f14b";
+}
+.as-heart:before {
+   content: "\f14c";
+}
+.as-history:before {
+   content: "\f14d";
+}
+.as-insert-comment:before {
+   content: "\f14e";
+}
+.as-italic:before {
+   content: "\f14f";
+}
+.as-label-o:before {
+   content: "\f150";
+}
+.as-label:before {
+   content: "\f151";
+}
+.as-language:before {
+   content: "\f152";
+}
+.as-level-down:before {
+   content: "\f153";
+}
+.as-level-up:before {
+   content: "\f154";
+}
+.as-line-horiz:before {
+   content: "\f155";
+}
+.as-line-vert:before {
+   content: "\f156";
+}
+.as-lock-open-outline:before {
+   content: "\f157";
+}
+.as-lock-outline:before {
+   content: "\f158";
+}
+.as-lock:before {
+   content: "\f159";
+}
+.as-long-text:before {
+   content: "\f15a";
+}
+.as-lookup:before {
+   content: "\f15b";
+}
+.as-menu:before {
+   content: "\f15c";
+}
+.as-minus-circle-o:before {
+   content: "\f15d";
+}
+.as-minus-circle:before {
+   content: "\f15e";
+}
+.as-minus-square:before {
+   content: "\f15f";
+}
+.as-minus:before {
+   content: "\f160";
+}
+.as-more-alt:before {
+   content: "\f161";
+}
+.as-more-horiz:before {
+   content: "\f162";
+}
+.as-more-vert:before {
+   content: "\f163";
+}
+.as-notification-none:before {
+   content: "\f164";
+}
+.as-notification:before {
+   content: "\f165";
+}
+.as-number-format:before {
+   content: "\f166";
+}
+.as-number-sign:before {
+   content: "\f167";
+}
+.as-outdent:before {
+   content: "\f168";
+}
+.as-pencil:before {
+   content: "\f169";
+}
+.as-phone:before {
+   content: "\f16a";
+}
+.as-picture-o:before {
+   content: "\f16b";
+}
+.as-picture:before {
+   content: "\f16c";
+}
+.as-plane:before {
+   content: "\f16d";
+}
+.as-play:before {
+   content: "\f16e";
+}
+.as-plus-circle-o:before {
+   content: "\f16f";
+}
+.as-plus-circle:before {
+   content: "\f170";
+}
+.as-plus-square:before {
+   content: "\f171";
+}
+.as-plus:before {
+   content: "\f172";
+}
+.as-predecessor-type:before {
+   content: "\f173";
+}
+.as-print:before {
+   content: "\f174";
+}
+.as-question-circle-o:before {
+   content: "\f175";
+}
+.as-question-circle:before {
+   content: "\f176";
+}
+.as-question:before {
+   content: "\f177";
+}
+.as-redo:before {
+   content: "\f178";
+}
+.as-refresh:before {
+   content: "\f179";
+}
+.as-restore:before {
+   content: "\f17a";
+}
+.as-roll:before {
+   content: "\f17b";
+}
+.as-search:before {
+   content: "\f17c";
+}
+.as-settings:before {
+   content: "\f17d";
+}
+.as-share:before {
+   content: "\f17e";
+}
+.as-sort-alpha-asc copy:before {
+   content: "\f17f";
+}
+.as-sort-alpha-asc:before {
+   content: "\f180";
+}
+.as-sort-amount-asc:before {
+   content: "\f181";
+}
+.as-sort-amount-desc:before {
+   content: "\f182";
+}
+.as-sort-arrow-both:before {
+   content: "\f183";
+}
+.as-sort-arrow-down:before {
+   content: "\f184";
+}
+.as-sort-arrow-up:before {
+   content: "\f185";
+}
+.as-sort:before {
+   content: "\f186";
+}
+.as-square-o:before {
+   content: "\f187";
+}
+.as-star-o:before {
+   content: "\f188";
+}
+.as-star:before {
+   content: "\f189";
+}
+.as-sticky-note-o:before {
+   content: "\f18a";
+}
+.as-strikethrough:before {
+   content: "\f18b";
+}
+.as-sync:before {
+   content: "\f18c";
+}
+.as-triangle:before {
+   content: "\f18d";
+}
+.as-undo:before {
+   content: "\f18e";
+}
+.as-user:before {
+   content: "\f18f";
+}
+.as-vertical-align-bottom:before {
+   content: "\f190";
+}
+.as-vertical-align-center:before {
+   content: "\f191";
+}
+.as-vertical-align-top:before {
+   content: "\f192";
+}
+.as-warning:before {
+   content: "\f193";
+}
+
+
+    </style>
+</head>
+
+<body>
+    <h1>Font: as</h1>
+
+
+        <div class="preview" title="as-align-center">
+            <span class="inner">
+                <i class="as as-align-center"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-align-center</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-align-justify">
+            <span class="inner">
+                <i class="as as-align-justify"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-align-justify</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-align-left">
+            <span class="inner">
+                <i class="as as-align-left"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-align-left</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-align-right">
+            <span class="inner">
+                <i class="as as-align-right"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-align-right</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-announcement">
+            <span class="inner">
+                <i class="as as-announcement"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-announcement</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-arrow-down">
+            <span class="inner">
+                <i class="as as-arrow-down"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-arrow-down</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-arrow-left">
+            <span class="inner">
+                <i class="as as-arrow-left"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-arrow-left</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-arrow-right">
+            <span class="inner">
+                <i class="as as-arrow-right"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-arrow-right</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-arrow-up">
+            <span class="inner">
+                <i class="as as-arrow-up"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-arrow-up</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-attachment">
+            <span class="inner">
+                <i class="as as-attachment"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-attachment</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-barcode">
+            <span class="inner">
+                <i class="as as-barcode"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-barcode</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-bold">
+            <span class="inner">
+                <i class="as as-bold"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-bold</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-border-all">
+            <span class="inner">
+                <i class="as as-border-all"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-border-all</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-border-bottom">
+            <span class="inner">
+                <i class="as as-border-bottom"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-border-bottom</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-border-horizontal">
+            <span class="inner">
+                <i class="as as-border-horizontal"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-border-horizontal</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-border-inner">
+            <span class="inner">
+                <i class="as as-border-inner"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-border-inner</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-border-left">
+            <span class="inner">
+                <i class="as as-border-left"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-border-left</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-border-none">
+            <span class="inner">
+                <i class="as as-border-none"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-border-none</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-border-outer">
+            <span class="inner">
+                <i class="as as-border-outer"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-border-outer</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-border-right">
+            <span class="inner">
+                <i class="as as-border-right"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-border-right</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-border-top">
+            <span class="inner">
+                <i class="as as-border-top"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-border-top</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-border-vertical">
+            <span class="inner">
+                <i class="as as-border-vertical"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-border-vertical</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-caret-down">
+            <span class="inner">
+                <i class="as as-caret-down"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-caret-down</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-caret-left">
+            <span class="inner">
+                <i class="as as-caret-left"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-caret-left</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-caret-right">
+            <span class="inner">
+                <i class="as as-caret-right"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-caret-right</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-caret-up">
+            <span class="inner">
+                <i class="as as-caret-up"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-caret-up</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-check-circle-o">
+            <span class="inner">
+                <i class="as as-check-circle-o"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-check-circle-o</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-check-circle">
+            <span class="inner">
+                <i class="as as-check-circle"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-check-circle</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-check-square-o">
+            <span class="inner">
+                <i class="as as-check-square-o"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-check-square-o</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-check-square">
+            <span class="inner">
+                <i class="as as-check-square"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-check-square</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-check">
+            <span class="inner">
+                <i class="as as-check"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-check</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-chevron-down">
+            <span class="inner">
+                <i class="as as-chevron-down"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-chevron-down</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-chevron-left">
+            <span class="inner">
+                <i class="as as-chevron-left"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-chevron-left</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-chevron-right">
+            <span class="inner">
+                <i class="as as-chevron-right"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-chevron-right</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-chevron-top">
+            <span class="inner">
+                <i class="as as-chevron-top"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-chevron-top</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-circle-o">
+            <span class="inner">
+                <i class="as as-circle-o"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-circle-o</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-circle">
+            <span class="inner">
+                <i class="as as-circle"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-circle</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-clock-o">
+            <span class="inner">
+                <i class="as as-clock-o"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-clock-o</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-close-circle-o">
+            <span class="inner">
+                <i class="as as-close-circle-o"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-close-circle-o</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-close-circle">
+            <span class="inner">
+                <i class="as as-close-circle"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-close-circle</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-close">
+            <span class="inner">
+                <i class="as as-close"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-close</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-collaborators">
+            <span class="inner">
+                <i class="as as-collaborators"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-collaborators</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-comma">
+            <span class="inner">
+                <i class="as as-comma"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-comma</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-comment-o">
+            <span class="inner">
+                <i class="as as-comment-o"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-comment-o</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-copy">
+            <span class="inner">
+                <i class="as as-copy"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-copy</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-date-range">
+            <span class="inner">
+                <i class="as as-date-range"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-date-range</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-date">
+            <span class="inner">
+                <i class="as as-date"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-date</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-delete-forever">
+            <span class="inner">
+                <i class="as as-delete-forever"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-delete-forever</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-delete">
+            <span class="inner">
+                <i class="as as-delete"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-delete</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-diamond">
+            <span class="inner">
+                <i class="as as-diamond"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-diamond</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-done-all">
+            <span class="inner">
+                <i class="as as-done-all"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-done-all</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-done">
+            <span class="inner">
+                <i class="as as-done"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-done</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-download">
+            <span class="inner">
+                <i class="as as-download"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-download</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-edit">
+            <span class="inner">
+                <i class="as as-edit"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-edit</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-envelope">
+            <span class="inner">
+                <i class="as as-envelope"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-envelope</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-error-outline">
+            <span class="inner">
+                <i class="as as-error-outline"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-error-outline</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-error">
+            <span class="inner">
+                <i class="as as-error"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-error</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-exit">
+            <span class="inner">
+                <i class="as as-exit"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-exit</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-expand">
+            <span class="inner">
+                <i class="as as-expand"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-expand</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-eye-slash">
+            <span class="inner">
+                <i class="as as-eye-slash"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-eye-slash</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-eye">
+            <span class="inner">
+                <i class="as as-eye"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-eye</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-file-download">
+            <span class="inner">
+                <i class="as as-file-download"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-file-download</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-file-upload">
+            <span class="inner">
+                <i class="as as-file-upload"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-file-upload</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-file">
+            <span class="inner">
+                <i class="as as-file"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-file</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-filter">
+            <span class="inner">
+                <i class="as as-filter"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-filter</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-fire">
+            <span class="inner">
+                <i class="as as-fire"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-fire</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-flag">
+            <span class="inner">
+                <i class="as as-flag"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-flag</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-flash">
+            <span class="inner">
+                <i class="as as-flash"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-flash</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-folder-create">
+            <span class="inner">
+                <i class="as as-folder-create"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-folder-create</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-folder-open">
+            <span class="inner">
+                <i class="as as-folder-open"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-folder-open</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-folder-shared">
+            <span class="inner">
+                <i class="as as-folder-shared"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-folder-shared</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-folder">
+            <span class="inner">
+                <i class="as as-folder"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-folder</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-group">
+            <span class="inner">
+                <i class="as as-group"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-group</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-header">
+            <span class="inner">
+                <i class="as as-header"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-header</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-heart-o">
+            <span class="inner">
+                <i class="as as-heart-o"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-heart-o</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-heart">
+            <span class="inner">
+                <i class="as as-heart"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-heart</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-history">
+            <span class="inner">
+                <i class="as as-history"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-history</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-insert-comment">
+            <span class="inner">
+                <i class="as as-insert-comment"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-insert-comment</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-italic">
+            <span class="inner">
+                <i class="as as-italic"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-italic</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-label-o">
+            <span class="inner">
+                <i class="as as-label-o"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-label-o</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-label">
+            <span class="inner">
+                <i class="as as-label"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-label</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-language">
+            <span class="inner">
+                <i class="as as-language"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-language</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-level-down">
+            <span class="inner">
+                <i class="as as-level-down"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-level-down</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-level-up">
+            <span class="inner">
+                <i class="as as-level-up"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-level-up</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-line-horiz">
+            <span class="inner">
+                <i class="as as-line-horiz"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-line-horiz</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-line-vert">
+            <span class="inner">
+                <i class="as as-line-vert"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-line-vert</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-lock-open-outline">
+            <span class="inner">
+                <i class="as as-lock-open-outline"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-lock-open-outline</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-lock-outline">
+            <span class="inner">
+                <i class="as as-lock-outline"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-lock-outline</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-lock">
+            <span class="inner">
+                <i class="as as-lock"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-lock</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-long-text">
+            <span class="inner">
+                <i class="as as-long-text"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-long-text</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-lookup">
+            <span class="inner">
+                <i class="as as-lookup"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-lookup</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-menu">
+            <span class="inner">
+                <i class="as as-menu"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-menu</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-minus-circle-o">
+            <span class="inner">
+                <i class="as as-minus-circle-o"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-minus-circle-o</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-minus-circle">
+            <span class="inner">
+                <i class="as as-minus-circle"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-minus-circle</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-minus-square">
+            <span class="inner">
+                <i class="as as-minus-square"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-minus-square</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-minus">
+            <span class="inner">
+                <i class="as as-minus"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-minus</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-more-alt">
+            <span class="inner">
+                <i class="as as-more-alt"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-more-alt</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-more-horiz">
+            <span class="inner">
+                <i class="as as-more-horiz"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-more-horiz</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-more-vert">
+            <span class="inner">
+                <i class="as as-more-vert"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-more-vert</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-notification-none">
+            <span class="inner">
+                <i class="as as-notification-none"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-notification-none</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-notification">
+            <span class="inner">
+                <i class="as as-notification"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-notification</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-number-format">
+            <span class="inner">
+                <i class="as as-number-format"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-number-format</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-number-sign">
+            <span class="inner">
+                <i class="as as-number-sign"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-number-sign</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-outdent">
+            <span class="inner">
+                <i class="as as-outdent"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-outdent</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-pencil">
+            <span class="inner">
+                <i class="as as-pencil"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-pencil</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-phone">
+            <span class="inner">
+                <i class="as as-phone"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-phone</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-picture-o">
+            <span class="inner">
+                <i class="as as-picture-o"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-picture-o</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-picture">
+            <span class="inner">
+                <i class="as as-picture"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-picture</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-plane">
+            <span class="inner">
+                <i class="as as-plane"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-plane</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-play">
+            <span class="inner">
+                <i class="as as-play"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-play</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-plus-circle-o">
+            <span class="inner">
+                <i class="as as-plus-circle-o"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-plus-circle-o</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-plus-circle">
+            <span class="inner">
+                <i class="as as-plus-circle"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-plus-circle</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-plus-square">
+            <span class="inner">
+                <i class="as as-plus-square"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-plus-square</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-plus">
+            <span class="inner">
+                <i class="as as-plus"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-plus</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-predecessor-type">
+            <span class="inner">
+                <i class="as as-predecessor-type"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-predecessor-type</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-print">
+            <span class="inner">
+                <i class="as as-print"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-print</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-question-circle-o">
+            <span class="inner">
+                <i class="as as-question-circle-o"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-question-circle-o</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-question-circle">
+            <span class="inner">
+                <i class="as as-question-circle"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-question-circle</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-question">
+            <span class="inner">
+                <i class="as as-question"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-question</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-redo">
+            <span class="inner">
+                <i class="as as-redo"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-redo</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-refresh">
+            <span class="inner">
+                <i class="as as-refresh"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-refresh</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-restore">
+            <span class="inner">
+                <i class="as as-restore"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-restore</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-roll">
+            <span class="inner">
+                <i class="as as-roll"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-roll</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-search">
+            <span class="inner">
+                <i class="as as-search"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-search</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-settings">
+            <span class="inner">
+                <i class="as as-settings"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-settings</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-share">
+            <span class="inner">
+                <i class="as as-share"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-share</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-sort-alpha-asc copy">
+            <span class="inner">
+                <i class="as as-sort-alpha-asc copy"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-sort-alpha-asc copy</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-sort-alpha-asc">
+            <span class="inner">
+                <i class="as as-sort-alpha-asc"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-sort-alpha-asc</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-sort-amount-asc">
+            <span class="inner">
+                <i class="as as-sort-amount-asc"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-sort-amount-asc</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-sort-amount-desc">
+            <span class="inner">
+                <i class="as as-sort-amount-desc"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-sort-amount-desc</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-sort-arrow-both">
+            <span class="inner">
+                <i class="as as-sort-arrow-both"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-sort-arrow-both</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-sort-arrow-down">
+            <span class="inner">
+                <i class="as as-sort-arrow-down"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-sort-arrow-down</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-sort-arrow-up">
+            <span class="inner">
+                <i class="as as-sort-arrow-up"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-sort-arrow-up</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-sort">
+            <span class="inner">
+                <i class="as as-sort"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-sort</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-square-o">
+            <span class="inner">
+                <i class="as as-square-o"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-square-o</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-star-o">
+            <span class="inner">
+                <i class="as as-star-o"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-star-o</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-star">
+            <span class="inner">
+                <i class="as as-star"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-star</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-sticky-note-o">
+            <span class="inner">
+                <i class="as as-sticky-note-o"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-sticky-note-o</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-strikethrough">
+            <span class="inner">
+                <i class="as as-strikethrough"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-strikethrough</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-sync">
+            <span class="inner">
+                <i class="as as-sync"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-sync</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-triangle">
+            <span class="inner">
+                <i class="as as-triangle"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-triangle</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-undo">
+            <span class="inner">
+                <i class="as as-undo"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-undo</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-user">
+            <span class="inner">
+                <i class="as as-user"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-user</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-vertical-align-bottom">
+            <span class="inner">
+                <i class="as as-vertical-align-bottom"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-vertical-align-bottom</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-vertical-align-center">
+            <span class="inner">
+                <i class="as as-vertical-align-center"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-vertical-align-center</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-vertical-align-top">
+            <span class="inner">
+                <i class="as as-vertical-align-top"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-vertical-align-top</strong></span>
+        </div>
+
+
+        <div class="preview" title="as-warning">
+            <span class="inner">
+                <i class="as as-warning"></i>
+            </span>
+            <br>
+            <span class="label"><strong>as-warning</strong></span>
+        </div>
+
+
+</body>
+
+</html>
